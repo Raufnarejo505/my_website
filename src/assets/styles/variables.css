@@ -1,0 +1,90 @@
+/* src/styles/_variables.css */
+
+/* ===== Base Theme (Default / Minimalist) ===== */
+:root {
+  /* Color Palette */
+  --color-dark-background: #FFFFFF;
+  --color-dark-surface: #FFFFFF;
+  --color-dark-surface-light: #F5F5F5;
+  --color-text-light: #333333;
+  --color-text-secondary: #7F8CAA;
+  --color-border: #BDBDBD;
+
+  /* Accent Colors */
+  --color-lime-accent: #43A047;
+  --color-blue-accent: #1E88E5;
+
+  /* Other specific colors */
+  --color-light-highlight: #F5F5F5;
+  --color-green-success: #43A047;
+
+  /* Spacing */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-xxxl: 64px;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.5rem;
+  --font-size-xxxl: 2.25rem;
+
+  /* Border Radii */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 16px;
+}
+
+/* ===== Theme 1: Trust & Stability ===== */
+.theme-trust {
+  --color-dark-background: #2C3E50; /* Dark Gray */
+  --color-dark-surface: #34495E;
+  --color-dark-surface-light: #3B4B5C;
+  --color-text-light: #ECF0F1; /* Bright White */
+  --color-text-secondary: #BDC3C7; /* Soft Gray */
+  --color-border: #95A5A6;
+
+  --color-lime-accent: #27AE60; /* Profit Green */
+  --color-blue-accent: #27AE60;
+  --color-light-highlight: #E74C3C; /* Loss/Warning */
+  --color-green-success: #27AE60;
+}
+
+/* ===== Theme 2: Modern & Minimalist ===== */
+.theme-minimal {
+  --color-dark-background: #FFFFFF;
+  --color-dark-surface: #FFFFFF;
+  --color-dark-surface-light: #F5F5F5;
+  --color-text-light: #2C3E50; /* Dark Blue */
+  --color-text-secondary: #5D6D7E; /* Blue-Gray */
+  --color-border: #BDBDBD;
+
+  --color-lime-accent: #F39C12; /* Bright Orange */
+  --color-blue-accent: #F39C12;
+  --color-light-highlight: #E67E22;
+  --color-green-success: #F39C12;
+}
+
+/* ===== Theme 3: Innovation & Depth ===== */
+.theme-innovation {
+  --color-dark-background: #1A237E; /* Navy Blue */
+  --color-dark-surface: #283593;
+  --color-dark-surface-light: #303F9F;
+  --color-text-light: #E0E0E0; /* Soft Gray */
+  --color-text-secondary: #B0BEC5; /* Muted Blue-Gray */
+  --color-border: #90A4AE;
+
+  --color-lime-accent: #00BCD4; /* Vibrant Cyan */
+  --color-blue-accent: #00BCD4;
+  --color-light-highlight: #26C6DA;
+  --color-green-success: #00BCD4;
+}

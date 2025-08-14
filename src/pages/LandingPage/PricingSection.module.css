@@ -1,0 +1,165 @@
+/* src/components/sections/PricingSection/PricingSection.module.css */
+/* Assuming --color-dark-surface-light is globally defined, e.g., #3E3F57 */
+
+.pricingSection {
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background-color: var(--color-dark-background); /* Consistent dark background */
+  color: var(--color-text-light); /* Main text color */
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: var(--font-size-xxxl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-xxl);
+  line-height: 1.2;
+}
+
+.pricingCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-xl); /* Space between cards */
+  max-width: 1200px; /* Limit overall width */
+  margin: 0 auto;
+}
+
+.priceCard {
+  background-color: var(--color-dark-surface); /* Card background */
+  border-radius: var(--border-radius-xl); /* Rounded corners */
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xl);
+  padding-top: var(--spacing-xxl); /* More padding at top for potential badge */
+  position: relative; /* For the popular badge positioning */
+  flex: 1 1 calc(33% - (2 * var(--spacing-xl) / 3)); /* 3 columns layout */
+  min-width: 280px; /* Prevent cards from getting too small */
+  max-width: 350px; /* Max width for individual cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.priceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.popularCard {
+  border-color: var(--color-lime-accent); /* Highlight border for popular card */
+  background-color: #3E3F57; /* Slightly lighter background for popular */
+  transform: scale(1.03); /* Slightly larger popular card */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+.popularBadge {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background-color: var(--color-lime-accent); /* Lime accent for badge */
+  color: var(--color-dark-background); /* Dark text on badge */
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tierName {
+  font-size: var(--font-size-xxl);
+  font-weight: 700;
+  color: var(--color-text-light); /* Main text color */
+  margin-bottom: var(--spacing-md);
+}
+
+.price {
+  font-size: 3rem; /* Large price font */
+  font-weight: 800;
+  color: var(--color-blue-accent); /* Blue accent for price */
+  margin-bottom: var(--spacing-lg);
+}
+
+.frequency {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text-secondary); /* Secondary text color */
+  margin-left: var(--spacing-xxs);
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-xl) 0; /* Space before button */
+  width: 100%; /* Take full width */
+}
+
+.featureItem {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary); /* Secondary text color */
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px dashed rgba(184, 207, 206, 0.1); /* Subtle separator */
+}
+
+.featureItem:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.tierButton {
+  margin-top: auto; /* Push button to the bottom if cards have varying content */
+  width: 100%; /* Make button full width of the card */
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size-lg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .priceCard {
+    flex: 1 1 calc(50% - (var(--spacing-xl) / 2)); /* 2 columns on tablets */
+    max-width: calc(50% - (var(--spacing-xl) / 2));
+  }
+  .mainHeading {
+    font-size: var(--font-size-xxl);
+  }
+}
+
+@media (max-width: 768px) {
+  .priceCard {
+    flex: 1 1 90%; /* Single column on smaller tablets/large mobiles */
+    max-width: 90%;
+    padding: var(--spacing-lg);
+  }
+  .mainHeading {
+    font-size: var(--font-size-xl);
+  }
+  .tierName {
+    font-size: var(--font-size-xl);
+  }
+  .price {
+    font-size: 2.5rem;
+  }
+  .featureItem {
+    font-size: var(--font-size-sm);
+  }
+  .tierButton {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: var(--font-size-lg);
+  }
+  .priceCard {
+    padding: var(--spacing-md);
+  }
+  .popularBadge {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xxs) var(--spacing-xs);
+  }
+  .price {
+    font-size: 2rem;
+  }
+}

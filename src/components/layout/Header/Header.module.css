@@ -1,0 +1,310 @@
+/* src/components/layout/Header/Header.module.css */
+.header {
+  background-color: var(--color-dark-surface); /* Keeping the surface dark for contrast */
+  padding: var(--spacing-sm) 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Keep shadow dark for contrast */
+}
+
+.headerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* Consolidated and updated .logo img styles */
+.logo img {
+  height: 65px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  border-radius: var(--border-radius-sm);
+}
+
+.nav {
+  /* No margin-right here, handled by gap on .leftSection */
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+  height: 100%;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.navLink, .navButton {
+  background: none;
+  border: none;
+  color: var(--color-text-light); /* Changed to dark gray for readability */
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  white-space: nowrap;
+  height: 100%;
+}
+
+.navLink:hover, .navButton:hover {
+  background-color: rgba(184, 207, 206, 0.1); /* Using rgba of --color-text-light */
+  color: var(--color-blue-accent); /* Updated to primary blue accent on hover */
+}
+
+.arrowIcon {
+  font-size: var(--font-size-sm);
+  margin-left: var(--spacing-xxs);
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  background-color: var(--color-dark-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); /* Keep shadow dark */
+  min-width: 250px;
+  padding: var(--spacing-sm) 0;
+  z-index: 1001;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.dropdown ul li {
+  /* No padding here, padding moved to the anchor tag */
+}
+
+.dropdown ul li a {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  padding: var(--spacing-xs) var(--spacing-md);
+}
+
+.dropdown ul li a:hover {
+  background-color: rgba(184, 207, 206, 0.1); /* Using rgba of --color-text-light */
+  text-decoration: none;
+}
+
+.dropdownIcon {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+.dropdown ul li a:hover .dropdownIcon {
+  color: var(--color-blue-accent); /* Updated to primary blue accent */
+}
+
+.dropdownSection {
+  flex: 1;
+  padding: 0 var(--spacing-md);
+}
+
+.dropdownSection h3 {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dropdownDivider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: var(--spacing-xs) var(--spacing-md);
+}
+
+/* Right section elements */
+.searchIconWrapper, .moneyIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-circle);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.searchIconWrapper:hover, .moneyIconWrapper:hover {
+  background-color: rgba(184, 207, 206, 0.1); /* Using rgba of --color-text-light */
+}
+
+.mainSearchIcon, .moneyIcon {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.stateSelectorWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.stateSelectorTrigger {
+  background-color: var(--color-dark-background);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xxs);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  min-width: 70px;
+  height: 40px;
+}
+
+.stateSelectorTrigger:hover {
+  background-color: rgba(184, 207, 206, 0.1); /* Using rgba of --color-text-light */
+  border-color: var(--color-blue-accent); /* Updated to primary blue accent */
+}
+
+/* Search Overlay Styles */
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Keep overlay dark for focus */
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: var(--spacing-xxl);
+}
+
+.searchOverlayContent {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  background-color: var(--color-dark-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Keep shadow dark */
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm);
+}
+
+.overlaySearchInput {
+  flex-grow: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-xs);
+  color: var(--color-text-light);
+}
+
+.closeSearchOverlay {
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  transition: color 0.2s ease-in-out;
+}
+
+.closeSearchOverlay:hover {
+  color: var(--color-blue-accent); /* Updated to primary blue accent */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .leftSection {
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-sm);
+    gap: var(--spacing-md);
+  }
+
+  .leftSection, .rightSection {
+    width: 100%;
+    justify-content: center;
+    gap: var(--spacing-md);
+  }
+
+  .nav {
+    margin-right: 0;
+  }
+
+  .navList {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .navItem {
+    margin-bottom: var(--spacing-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .leftSection, .rightSection {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .navLink, .navButton {
+    padding: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+  }
+
+  .rightSection .button {
+    width: 100%;
+  }
+}

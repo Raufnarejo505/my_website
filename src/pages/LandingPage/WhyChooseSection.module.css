@@ -1,0 +1,112 @@
+/* src/components/sections/WhyChooseSection/WhyChooseSection.module.css */
+.whyChooseSection {
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background-color: var(--color-dark-background); /* Use your primary dark background */
+  color: var(--color-text-light);
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: var(--font-size-xxxl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-xxl);
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--color-lime-accent); /* Use the lime accent color */
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center; /* Center cards horizontally */
+  gap: var(--spacing-xl); /* Space between cards */
+  max-width: 1200px; /* Limit the width of the card section */
+  margin: 0 auto; /* Center the cards container */
+}
+
+.card {
+  background-color: var(--color-dark-surface); /* Card background */
+  border-radius: var(--border-radius-xl); /* Very rounded edges */
+  padding: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  flex: 1 1 calc(33% - (2 * var(--spacing-xl) / 3)); /* For 3 columns, roughly 33% width minus gap */
+  min-width: 280px; /* Minimum width to prevent cards from getting too small */
+  max-width: 380px; /* Max width for individual cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  border-color: var(--color-lime-accent);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.cardIcon {
+  font-size: 3rem; /* Size of the icon */
+  color: var(--color-blue-accent); /* Accent color for icons */
+  margin-bottom: var(--spacing-md);
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+.cardDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .cardsContainer {
+    gap: var(--spacing-lg); /* Slightly less gap */
+  }
+  .card {
+    flex: 1 1 calc(50% - (var(--spacing-lg) / 2)); /* 2 columns on tablets */
+    max-width: 45%; /* Prevent cards from becoming too wide in two columns */
+  }
+  .mainHeading {
+    font-size: var(--font-size-xxl);
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeading {
+    font-size: var(--font-size-xl);
+  }
+  .card {
+    flex: 1 1 90%; /* Single column on smaller tablets/large mobiles */
+    max-width: 90%;
+    padding: var(--spacing-lg);
+  }
+  .cardIcon {
+    font-size: 2.5rem;
+  }
+  .cardTitle {
+    font-size: var(--font-size-lg);
+  }
+  .cardDescription {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: var(--font-size-lg);
+  }
+  .card {
+    padding: var(--spacing-md);
+    margin: 0 auto; /* Center card if it's the only one */
+  }
+}

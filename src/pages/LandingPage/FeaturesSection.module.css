@@ -1,0 +1,75 @@
+/* src/pages/LandingPage/FeaturesSection.module.css */
+.featuresSection {
+  display: flex;
+  justify-content: center; /* Center the entire row of features */
+  flex-wrap: wrap; /* Allow features to wrap to the next line */
+  gap: var(--spacing-lg); /* Consistent gap between features (both row and column) */
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--color-dark-background); /* Ensure background is set */
+  color: var(--color-text-light); /* Ensure text color is set */
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text-light);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  /* Flex basis: Each item will try to be around 250px wide, but will grow/shrink */
+  /* This ensures 4 items fit on large screens, 2 on medium, 1 on small */
+  flex: 1 1 250px; /* Adjusted min-width for better distribution */
+  justify-content: flex-start; /* Align text and icon to the start within its item box */
+  text-align: left; /* Ensure text is left-aligned */
+  /* Add some internal padding to make them feel like distinct blocks if needed, though not explicitly cards */
+  padding: var(--spacing-sm); /* Added padding for better spacing within each item */
+}
+
+.featureIcon {
+  color: var(--color-green-success); /* Changed to use new accent color */
+  font-size: var(--font-size-lg);
+  flex-shrink: 0; /* Prevent icon from shrinking on smaller screens */
+}
+
+/* Responsive adjustments */
+/* No need for a separate flex-direction: column for the main section, flex-wrap handles it */
+@media (max-width: 992px) {
+  .featuresSection {
+    /* Adjust gap if needed for tablet layouts */
+    gap: var(--spacing-md);
+  }
+  .featureItem {
+    flex: 1 1 calc(50% - var(--spacing-md) / 2); /* Two columns on tablets */
+    max-width: calc(50% - var(--spacing-md) / 2); /* Ensure max width for two columns */
+    font-size: var(--font-size-base); /* Slightly smaller font on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresSection {
+    padding: var(--spacing-xl) var(--spacing-md); /* Reduce overall padding */
+    gap: var(--spacing-md); /* Consistent gap */
+  }
+  .featureItem {
+    flex: 1 1 100%; /* Single column on smaller tablets/large mobiles */
+    max-width: 90%; /* Keep some margin on the sides */
+    margin: 0 auto; /* Center the item */
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .featuresSection {
+    padding: var(--spacing-lg) var(--spacing-sm); /* Even smaller padding */
+    gap: var(--spacing-sm); /* Smaller gap */
+  }
+  .featureItem {
+    font-size: var(--font-size-sm); /* Smallest font on mobile */
+    gap: var(--spacing-xs); /* Smaller gap between icon and text */
+  }
+  .featureIcon {
+    font-size: var(--font-size-base); /* Adjust icon size if needed */
+  }
+}

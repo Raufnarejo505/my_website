@@ -1,0 +1,108 @@
+/* global.css */
+
+/* === CSS Reset === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Base Styles === */
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF; /* White background for a clean look */
+  color: #333333; /* Dark gray text for easy readability */
+  line-height: 1.6;
+}
+
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 {
+  color: #1E88E5; /* Primary blue color for headers */
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+p {
+  color: #333333; /* Dark gray for paragraph text */
+  margin-bottom: 1em;
+}
+
+/* === Links === */
+a {
+  color: #1E88E5; /* Primary blue color for links */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: #0D47A1; /* Darker blue for hover effect */
+  text-decoration: underline;
+}
+
+/* === Utility Classes === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* === Forms & Buttons === */
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #BDBDBD; /* Light gray border */
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+button {
+  background-color: #1E88E5; /* Primary blue for button background */
+  color: #FFFFFF; /* White text on the button */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #1565C0; /* Darker blue for hover */
+  transform: scale(1.05);
+}
+
+/* === Highlighted Elements === */
+.win-percentage, .profit-tags {
+  color: #43A047; /* Green for profit highlights */
+}
+
+/* === Scrollbar Styling === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F5F5; /* Light gray background for the scrollbar */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #BDBDBD; /* Light gray for the scrollbar thumb */
+  border-radius: 10px;
+}

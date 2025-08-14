@@ -1,0 +1,39 @@
+/* LandingPage.module.css */
+
+.landingPage {
+  background-color: var(--color-dark-background); /* Dark background */
+  color: var(--color-text-light); /* Light text color for readability */
+  min-height: 100vh;
+  padding: 4rem 1rem;
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--color-text-light); /* Main light text color */
+  margin-bottom: 1rem;
+}
+
+.heroText {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary); /* Secondary text color */
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  background-color: var(--color-blue-accent); /* Primary blue accent */
+  color: var(--color-dark-background); /* Dark text for contrast with light background */
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 999px; /* Rounded edges for a smooth look */
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: var(--color-light-highlight); /* Light highlight on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Dark shadow effect */
+  transform: scale(1.05); /* Slight zoom effect for interactivity */
+}

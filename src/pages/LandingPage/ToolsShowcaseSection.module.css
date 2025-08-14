@@ -1,0 +1,337 @@
+/* src/pages/LandingPage/ToolsShowcaseSection.module.css */
+.toolsShowcaseSection {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl); /* Standard gap between sidebar and main content */
+  padding: var(--spacing-xxl) var(--spacing-lg); /* Consistent padding */
+  max-width: 1400px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  background-color: var(--color-dark-background); /* Ensure background is set */
+  color: var(--color-text-light); /* Ensure text color is set */
+}
+
+/* LEFT SIDEBAR */
+.leftSidebar {
+  background-color: var(--color-dark-surface);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  /* Flex properties for sidebar: */
+  flex: 1 1 280px; /* Base width of 280px, can grow/shrink */
+  max-width: 320px; /* Max width to prevent it from getting too wide on large screens */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.sidebarHeader {
+  display: flex;
+  flex-direction: column; /* Stack logo and tabs */
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebarLogo {
+  height: 25px; /* Adjust size for sidebar logo */
+  margin-bottom: var(--spacing-sm);
+}
+
+.sidebarTabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow tabs to wrap if space is limited */
+}
+
+.sidebarTab {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap; /* Prevent text wrapping within buttons */
+}
+
+.sidebarTab.active {
+  background-color: var(--color-blue-accent);
+  color: var(--color-dark-background); /* Text is dark on light accent background */
+  border-color: var(--color-blue-accent);
+}
+
+.sidebarTab:hover:not(.active) {
+  background-color: rgba(184, 207, 206, 0.1); /* rgba of --color-text-light */
+  color: var(--color-blue-accent); /* Accent color on hover for text */
+}
+
+.sidebarNav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarNavItem {
+  margin-bottom: var(--spacing-xs);
+}
+
+.sidebarNavLink {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-text-light);
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap; /* Prevent link text from wrapping */
+}
+
+.sidebarNavLink:hover {
+  background-color: rgba(184, 207, 206, 0.1); /* rgba of --color-text-light */
+  color: var(--color-blue-accent);
+}
+
+.sidebarIcon {
+  color: var(--color-text-secondary);
+  flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.sidebarNavLink:hover .sidebarIcon {
+  color: var(--color-blue-accent);
+}
+
+.sidebarNavLink .percentage {
+  margin-left: auto; /* Push percentage to the right */
+  background-color: var(--color-green-success); /* Use success green variable */
+  color: var(--color-dark-background); /* CHANGED: Ensure dark text on light green background */
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+
+/* MAIN CONTENT AREA (TABLE) */
+.mainContentArea {
+  background-color: var(--color-dark-surface);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  /* Flex properties for main content: */
+  flex: 3 1 600px; /* Takes more space, base width of 600px, can grow/shrink */
+  min-width: 320px; /* Adjusted minimum width for table content */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  flex-wrap: wrap; /* Allow elements to wrap within header */
+  gap: var(--spacing-sm); /* Gap between header elements */
+}
+
+.tableHeader h2 {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-light);
+}
+
+.tableFilters {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap; /* Allow filter buttons to wrap */
+}
+
+.filterButton {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  font-size: var(--font-size-sm);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  white-space: nowrap; /* Prevent text wrapping within buttons */
+}
+
+.filterButton.active {
+  background-color: var(--color-blue-accent);
+  color: var(--color-dark-background); /* Text is dark on light accent background */
+  border-color: var(--color-blue-accent);
+}
+
+.filterButton:hover:not(.active) {
+  background-color: rgba(184, 207, 206, 0.1); /* rgba of --color-text-light */
+  color: var(--color-blue-accent);
+}
+
+.lockIconSmall {
+  font-size: var(--font-size-sm);
+}
+
+.tableContainer {
+  overflow-x: auto; /* Essential for responsive tables */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  /* Optionally add a subtle shadow for scroll indication */
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.dataTablet {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* Ensure table has a minimum width before scrolling */
+}
+
+.dataTablet th, .dataTablet td {
+  padding: var(--spacing-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap; /* Prevent content from wrapping in cells */
+}
+
+.dataTablet th {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.dataTablet td {
+  color: var(--color-text-light);
+  font-size: var(--font-size-base);
+}
+
+.dataTablet tbody tr:last-child td {
+  border-bottom: none; /* No border for the last row */
+}
+
+.betBooks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Small gap between book entries */
+  font-size: var(--font-size-sm);
+}
+
+.betBooks span {
+  color: var(--color-text-secondary); /* Softer color for sportsbook names */
+}
+
+/* Button Component within table (using :global for external component) */
+.dataTablet :global(.button) {
+  padding: var(--spacing-xs) var(--spacing-sm); /* Smaller padding for table buttons */
+  font-size: var(--font-size-sm); /* Smaller font for table buttons */
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+/* Responsive adjustments for ToolsShowcaseSection */
+@media (max-width: 992px) {
+  .toolsShowcaseSection {
+    flex-direction: column; /* Stack sidebar and main content vertically */
+    gap: var(--spacing-lg); /* Consistent gap between stacked components */
+    padding: var(--spacing-xl) var(--spacing-md); /* Adjust overall padding */
+  }
+
+  .leftSidebar, .mainContentArea {
+    width: 100%; /* Take full width */
+    max-width: 100%; /* Remove max-width constraints when stacked */
+    flex: 1 1 auto; /* Allow items to adjust their size automatically */
+    margin-bottom: 0; /* Remove extra margin if handled by gap */
+  }
+
+  .sidebarHeader {
+    align-items: center; /* Center header content */
+  }
+
+  .sidebarTabs {
+    justify-content: center; /* Center tabs when stacked */
+  }
+
+  .sidebarNav {
+    flex-wrap: wrap; /* Allow nav items to wrap */
+    justify-content: center; /* Center nav items */
+    gap: var(--spacing-sm); /* Gap between wrapped nav items */
+  }
+
+  .sidebarNavItem {
+    width: auto; /* Allow nav item to size based on content */
+    margin-bottom: 0; /* Reset margin, controlled by gap on .sidebarNav */
+  }
+
+  .sidebarNavLink {
+    /* REMOVED: justify-content: center; to maintain left alignment of icon/text */
+    padding: var(--spacing-xs); /* Smaller padding for nav links */
+  }
+
+  .tableHeader {
+    flex-direction: column; /* Stack table header elements */
+    align-items: flex-start; /* Align header elements to the start */
+    gap: var(--spacing-xs); /* Smaller gap for stacked header elements */
+  }
+
+  .tableFilters {
+    justify-content: flex-start; /* Align filter buttons to the start */
+  }
+
+  .dataTablet {
+    min-width: 700px; /* Increase min-width slightly to allow more table content before scroll */
+  }
+}
+
+@media (max-width: 768px) {
+  .toolsShowcaseSection {
+    padding: var(--spacing-lg) var(--spacing-sm); /* Smaller padding on smaller devices */
+  }
+  .leftSidebar, .mainContentArea {
+    padding: var(--spacing-lg); /* Maintain decent internal padding */
+  }
+
+  .dataTablet th, .dataTablet td {
+    padding: var(--spacing-sm) var(--spacing-xs); /* Smaller padding for table cells */
+    font-size: var(--font-size-sm);
+  }
+
+  .dataTablet {
+    min-width: 600px; /* Further reduce min-width for very small screens, rely on scroll */
+  }
+
+  .betBooks {
+    font-size: var(--font-size-xs);
+  }
+
+  .filterButton, .sidebarTab {
+    font-size: var(--font-size-xs);
+    padding: var(--spacing-xxs) var(--spacing-sm); /* Even smaller padding for buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .toolsShowcaseSection {
+    padding: var(--spacing-md) var(--spacing-xs); /* Minimal padding for smallest screens */
+  }
+  .leftSidebar, .mainContentArea {
+    padding: var(--spacing-md); /* Reduced internal padding */
+  }
+
+  .sidebarNavLink {
+    font-size: var(--font-size-sm);
+    gap: var(--spacing-xs);
+  }
+
+  .tableHeader h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .dataTablet th, .dataTablet td {
+    padding: var(--spacing-xs); /* Even tighter padding for table cells */
+    font-size: var(--font-size-xs);
+  }
+
+  .dataTablet {
+    min-width: 500px; /* Allow table to be smaller, increase horizontal scroll reliance */
+  }
+}

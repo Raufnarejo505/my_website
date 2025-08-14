@@ -1,0 +1,117 @@
+/* src/components/layout/Header/StateSelector.module.css */
+.stateSelectorDropdown {
+    position: absolute;
+    top: calc(var(--header-height) + var(--spacing-sm));
+    right: 0;
+    background-color: var(--color-dark-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4); /* Keep shadow dark */
+    min-width: 450px;
+    padding: var(--spacing-sm);
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    font-weight: 600;
+    color: var(--color-text-light);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.searchContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 200px;
+}
+
+.searchInput {
+    width: 100%;
+    padding-left: var(--spacing-lg);
+    background-color: var(--color-dark-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-sm);
+    padding-top: var(--spacing-xxs);
+    padding-bottom: var(--spacing-xxs);
+    color: var(--color-text-light); /* Ensure input text is visible */
+}
+
+.searchIcon {
+    position: absolute;
+    left: var(--spacing-xs);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.stateList {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: var(--spacing-xs);
+}
+
+.stateList::-webkit-scrollbar {
+    width: 8px; /* Thinner scrollbar for internal lists */
+}
+
+.stateList::-webkit-scrollbar-track {
+    background: var(--color-dark-background); /* Track matches background */
+}
+
+.stateList::-webkit-scrollbar-thumb {
+    background-color: var(--color-text-secondary); /* Thumb color */
+    border-radius: 10px;
+}
+
+.stateColumn {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    min-width: 180px;
+}
+
+.stateItem {
+    padding: var(--spacing-xxs) var(--spacing-sm);
+    cursor: pointer;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.15s ease-in-out;
+}
+
+.stateItem:hover {
+    background-color: rgba(184, 207, 206, 0.1); /* Using rgba of --color-text-light */
+}
+
+.stateItem.selected {
+    color: var(--color-blue-accent); /* Updated to primary blue accent */
+    font-weight: 600;
+}
+
+.checkIcon {
+    font-size: var(--font-size-base);
+    color: var(--color-blue-accent); /* Updated to primary blue accent */
+}
+
+.noResults {
+    width: 100%;
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-md);
+}

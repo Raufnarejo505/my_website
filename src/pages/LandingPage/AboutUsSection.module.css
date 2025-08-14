@@ -1,0 +1,207 @@
+/* src/components/sections/AboutUsSection/AboutUsSection.module.css */
+.aboutUsSection {
+  padding: 4rem 2rem;
+  background-color: var(--color-dark-background); /* Changed to your darkest color */
+  color: var(--color-text-light); /* Changed to your main light text color */
+  text-align: center;
+}
+.iconHeader {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-blue-accent);
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  color: var(--color-text-light); /* Changed to your main light text color */
+}
+
+.subHeading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-lime-accent); /* Changed to use new accent color (B8CFCE) */
+  margin-bottom: 4rem;
+}
+
+.cardsGridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  align-items: stretch;
+}
+
+.contentCard {
+  background-color: var(--color-dark-surface); /* Changed to your dark surface color */
+  border-radius: var(--border-radius-xl); /* Using XL border radius for cards */
+  border: 1px solid var(--color-border); /* Changed to your border color */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Keep shadow dark */
+  padding: 2rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.contentCard:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-blue-accent); /* Changed to your new blue accent (B8CFCE) */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Keep shadow dark */
+}
+
+.blockTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-light); /* Changed to your main light text color */
+  margin-bottom: 1.5rem;
+}
+
+.blockDescription {
+  font-size: 1rem;
+  color: var(--color-text-secondary); /* Changed to your secondary text color */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.italicText {
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-lime-accent); /* Changed to use new accent color (B8CFCE) */
+}
+
+.checkmarksList,
+.featuresList,
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+.checkmarksList li,
+.featuresList li,
+.bulletList li {
+  font-size: 1rem;
+  color: var(--color-text-secondary); /* Changed to your secondary text color */
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.checkmarkIcon,
+.featureEmoji,
+.bulletIcon {
+  font-size: 1.2rem;
+  color: var(--color-blue-accent); /* Changed to your new blue accent (B8CFCE) */
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.featureHighlight {
+  font-weight: 600;
+  color: var(--color-text-light); /* Changed to your main light text color */
+}
+
+/* Call to Action */
+.callToAction {
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--color-border); /* Changed to your border color */
+  text-align: center;
+}
+
+.ctaText {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-light); /* Changed to your main light text color */
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .mainHeading {
+    font-size: 2rem;
+  }
+  .subHeading {
+    font-size: 1.25rem;
+  }
+  .blockTitle {
+    font-size: 1.5rem;
+  }
+  .blockDescription,
+  .checkmarksList li,
+  .featuresList li,
+  .bulletList li {
+    font-size: 1rem;
+  }
+  .ctaText {
+    font-size: 1.25rem;
+  }
+  .contentCard {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeading {
+    font-size: 1.5rem;
+  }
+  .subHeading {
+    font-size: 1rem;
+  }
+  .blockTitle {
+    font-size: 1.25rem;
+  }
+  .aboutUsSection {
+    padding: 2rem 1rem;
+  }
+  .contentCard {
+    padding: 1.5rem;
+  }
+  .cardsGridContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .ctaButtons {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: 1.25rem;
+  }
+  .blockTitle {
+    font-size: 1rem;
+  }
+  .blockDescription,
+  .checkmarksList li,
+  .featuresList li,
+  .bulletList li {
+    font-size: 0.875rem;
+  }
+  .ctaText {
+    font-size: 1rem;
+  }
+  .contentCard {
+    padding: 1rem;
+    border-radius: 0.75rem;
+  }
+}

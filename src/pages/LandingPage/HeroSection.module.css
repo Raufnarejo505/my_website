@@ -1,0 +1,226 @@
+/* src/pages/LandingPage/HeroSection.module.css */
+.heroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  background-color: var(--color-dark-background); /* Ensure background is set */
+  color: var(--color-text-light); /* Ensure text color is set */
+}
+
+.heroContent {
+  flex: 1; /* Allows content to grow */
+  min-width: 300px; /* Prevents shrinking too much */
+  text-align: left;
+}
+
+.trustIndicator {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.trustIcon {
+  color: var(--color-blue-accent);
+}
+
+.heroTitle {
+  font-size: var(--font-size-hero-title);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-md);
+}
+
+.heroTitle .highlight {
+  color: var(--color-blue-accent);
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.ctaForm {
+  display: flex;
+  flex-wrap: wrap; /* Allow form elements to wrap */
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allow input to take available space */
+  min-width: 200px; /* Minimum width for input */
+}
+
+.emailInput {
+  flex-grow: 1;
+  padding: var(--spacing-sm) var(--spacing-md);
+  padding-left: var(--spacing-xl); /* Make space for icon */
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-dark-surface);
+  color: var(--color-text-light);
+  font-size: var(--font-size-base);
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.emailInput:focus {
+  border-color: var(--color-blue-accent);
+}
+
+.inputIcon {
+  position: absolute;
+  left: var(--spacing-sm);
+  color: var(--color-text-secondary);
+}
+
+.stateSelectorWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.stateSelectorTrigger {
+  background-color: var(--color-dark-background);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xxs);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  min-width: 70px;
+  height: 40px;
+}
+
+.stateSelectorTrigger:hover {
+  background-color: rgba(184, 207, 206, 0.1); /* Changed to rgba of --color-text-light */
+  border-color: var(--color-blue-accent);
+}
+
+
+.heroImageContainer {
+  flex: 1; /* Allows container to grow */
+  min-width: 300px; /* Prevents container from shrinking too much */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- PROFIT MODULE STYLES (within HeroSection) --- */
+.profitModule {
+  position: relative;
+  background-color: rgba(51, 52, 70, 0.6); /* Changed to rgba of --color-dark-background */
+  backdrop-filter: blur(8px); /* Blur effect as seen in image */
+  border: 1px solid rgba(127, 140, 170, 0.4); /* Changed to rgba of --color-text-secondary */
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  color: var(--color-text-light);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5); /* Stronger shadow */
+  width: 100%; /* Ensure it takes full width of its container */
+  max-width: 350px; /* Limit its max width */
+  overflow: hidden; /* Important for blur to work within bounds */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px; /* Give it a minimum height */
+  box-sizing: border-box; /* Include padding/border in width/height */
+}
+
+.profitModule h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-light);
+  line-height: 1.3;
+}
+
+.lockIcon {
+  font-size: var(--font-size-xxl); /* Larger icon */
+  margin-bottom: var(--spacing-md); /* More space below icon */
+  display: block;
+  color: rgba(184, 207, 206, 0.7); /* Changed to rgba of --color-text-light */
+}
+
+.profitModule :global(.button) { /* Targeting Button component's root element */
+  margin-top: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-xl);
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-blue-accent);
+  color: var(--color-dark-background); /* Changed for visibility: button text now dark background color */
+  /* No need for hover here, handled in Button.module.css */
+}
+/* --- END PROFIT MODULE STYLES --- */
+
+/* Responsive adjustments for HeroSection */
+@media (max-width: 992px) {
+  .heroSection {
+    flex-direction: column; /* Stack sections */
+    text-align: center;
+  }
+
+  .heroContent, .heroImageContainer {
+    width: 100%; /* Take full width */
+    max-width: unset; /* Remove max-width constraints */
+    margin-bottom: var(--spacing-lg); /* Space between stacked items */
+  }
+
+  .ctaForm {
+    justify-content: center; /* Center form elements when stacked */
+  }
+
+  .inputWrapper, .stateSelectorWrapper {
+    width: 100%; /* Make input and state selector full width */
+    min-width: unset;
+  }
+
+  .emailInput {
+    width: 100%;
+  }
+
+  .ctaForm :global(.button) { /* Target the Button component */
+    width: 100%; /* Make button full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: var(--font-size-xxxl); /* Smaller on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: var(--font-size-xxl); /* Even smaller on mobile */
+  }
+
+  .heroSubtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .ctaForm {
+    flex-direction: column; /* Stack form elements */
+    align-items: stretch; /* Stretch to fill width */
+  }
+
+  .inputWrapper {
+    width: 100%;
+  }
+}

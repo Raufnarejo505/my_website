@@ -1,0 +1,232 @@
+/* src/components/sections/ProfitSection/ProfitSection.module.css */
+.profitSection {
+  padding: var(--spacing-xxl) var(--spacing-lg); /* Use CSS variables for padding */
+  background-color: var(--color-dark-background); /* Updated to variable */
+  color: var(--color-text-light); /* Updated to variable */
+  overflow: hidden; /* Important to contain carousel */
+}
+
+.textContainer {
+  max-width: 1000px;
+  margin: 0 auto var(--spacing-xxl); /* Use CSS variable for margin-bottom */
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: var(--font-size-xxl); /* Use CSS variable */
+  font-weight: 800;
+  margin-bottom: var(--spacing-md); /* Add margin below heading */
+}
+
+.highlight {
+  color: var(--color-lime-accent); /* Updated to variable */
+}
+
+.subHeading {
+  font-size: var(--font-size-lg); /* Use CSS variable */
+  color: var(--color-text-secondary); /* Updated to variable */
+  max-width: 800px; /* Limit width for better readability */
+  margin: 0 auto;
+}
+
+.pikkitHighlight {
+  font-weight: bold;
+  color: var(--color-blue-accent); /* Updated to variable */
+}
+
+/* Carousel */
+.carouselContainer {
+  overflow: hidden; /* Hides parts of cards outside the container */
+  width: 100%; /* Ensure it takes full available width */
+}
+
+.carouselTrack {
+  display: flex;
+  white-space: nowrap; /* Keeps items on a single line for the carousel */
+  animation: scrollLeft 50s linear infinite;
+  padding-bottom: var(--spacing-md); /* Add some padding for potential scrollbar */
+  padding-left: 25%; /* Start carousel a bit off-screen to the left for seamless loop visual */
+  padding-right: 25%; /* End carousel a bit off-screen to the right */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.carouselTrack:hover {
+  animation-play-state: paused;
+}
+
+.card {
+  flex: 0 0 auto; /* Essential for carousel: don't grow, don't shrink, auto basis */
+  background: var(--color-dark-surface); /* Updated to variable */
+  border: 1px solid var(--color-border); /* Updated to variable */
+  border-radius: var(--border-radius-xl); /* Use CSS variable */
+  padding: var(--spacing-lg); /* Use CSS variable */
+  margin: 0 var(--spacing-md); /* Spacing between cards */
+  width: 320px; /* Base width for cards (adjusted slightly for better fit) */
+  box-sizing: border-box; /* Include padding and border in width */
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  display: flex; /* Use flexbox for internal card layout */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: space-between; /* Push image to bottom if content is short */
+  scroll-snap-align: center; /* For potential manual scroll snapping */
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-lime-accent); /* Updated to variable */
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between; /* Space out name/state and profit */
+  align-items: flex-start; /* Align items vertically to the top */
+  margin-bottom: var(--spacing-md); /* Use CSS variable */
+  flex-wrap: wrap; /* Allow wrapping of elements within header if space is tight */
+  gap: var(--spacing-xs); /* Added gap for elements when they wrap */
+}
+
+.cardName {
+  font-size: var(--font-size-lg); /* Use CSS variable */
+  font-weight: bold;
+  white-space: normal; /* Allow name to wrap */
+  flex-shrink: 0; /* Prevent shrinking if profit pushes too much */
+}
+
+.cardState {
+  font-size: var(--font-size-sm); /* Use CSS variable */
+  color: var(--color-text-secondary); /* Updated to variable */
+  white-space: normal; /* Allow state to wrap */
+}
+
+.cardProfit {
+  font-size: var(--font-size-xl); /* Use CSS variable */
+  font-weight: bold;
+  color: var(--color-green-success); /* Keeping original green for success, or consider a new variable like --color-success-green */
+  margin-left: var(--spacing-md); /* Push profit to the right with explicit margin */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align profit and duration to the right within its own column */
+  white-space: nowrap; /* Keep profit on one line if possible */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.cardDuration {
+  display: block;
+  font-size: var(--font-size-sm); /* Use CSS variable */
+  color: var(--color-text-secondary); /* Updated to variable */
+  white-space: nowrap; /* Keep duration on one line */
+}
+
+.cardTestimonial {
+  font-size: var(--font-size-base); /* Use CSS variable */
+  color: var(--color-text-light); /* Updated to variable for light text */
+  margin-bottom: var(--spacing-lg); /* Use CSS variable */
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit to 4 lines, adjust as needed */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for overflow */
+  white-space: normal; /* Allow text to wrap naturally */
+  flex-grow: 1; /* Allow testimonial to take available space */
+}
+
+.cardImage {
+  width: 100%;
+  height: auto; /* Ensure aspect ratio is maintained */
+  border-radius: var(--border-radius-md); /* Use CSS variable */
+  border: 1px solid var(--color-border); /* Updated to variable */
+  margin-top: auto; /* Push image to the bottom */
+  display: block; /* Remove extra space below image */
+}
+
+/* Animation */
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+/* Adjust main heading and subheading font sizes for better responsiveness */
+@media (min-width: 768px) {
+  .mainHeading {
+    font-size: var(--font-size-xxxl); /* Larger font for larger screens */
+  }
+  .subHeading {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .mainHeading {
+    font-size: var(--font-size-xxxxl); /* Even larger for desktop */
+  }
+  .subHeading {
+    font-size: var(--font-size-xl);
+  }
+  .card {
+    width: 340px; /* Slightly larger cards on wider desktops */
+  }
+}
+
+/* Mobile-first approach: Stack cards, remove animation for smaller screens */
+/* Breakpoint for switching from carousel to stacked */
+@media (max-width: 992px) {
+  .profitSection {
+    padding: var(--spacing-xl) var(--spacing-md); /* Adjusted padding for smaller devices */
+  }
+
+  .textContainer {
+    margin-bottom: var(--spacing-xl); /* Adjusted margin */
+  }
+
+  .mainHeading {
+    font-size: var(--font-size-xxl); /* Adjust font size for tablets/large phones */
+  }
+
+  .subHeading {
+    font-size: var(--font-size-base); /* Adjust font size for tablets/large phones */
+  }
+
+  .carouselContainer {
+    overflow: visible; /* Allow content to flow naturally */
+  }
+
+  .carouselTrack {
+    animation: none; /* Disable animation */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center cards in the grid */
+    white-space: normal; /* Allow content to wrap */
+    padding-left: 0; /* Remove carousel-specific padding */
+    padding-right: 0; /* Remove carousel-specific padding */
+    gap: var(--spacing-lg); /* Add gap for grid layout */
+  }
+
+  .card {
+    width: 100%; /* Make cards take full width */
+    max-width: 320px; /* Max width to prevent them from becoming too wide on tablets */
+    margin: 0; /* Remove horizontal margin as gap handles it */
+    flex: 1 1 300px; /* Allow cards to grow/shrink but maintain a minimum width for tablet grid */
+  }
+
+  .cardHeader {
+    flex-direction: row; /* Keep header elements in a row if possible */
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Space out elements */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: var(--spacing-sm);
+  }
+
+  .cardName, .cardState, .cardTestimonial {
+    white-space: normal; /* Ensure text wraps normally */
+  }
+
+  .cardProfit {
+      margin-left: auto; /* Push to right */
+      align-items: flex-end; /* Keep align to right for profit/duration */
+  }
+}

@@ -1,0 +1,229 @@
+/* src/components/sections/HowItWorksSection/HowItWorksSection.module.css */
+.howItWorksSection {
+  padding: var(--spacing-xxl) var(--spacing-lg);
+  background-color: var(--color-dark-background); /* Dark background */
+  color: var(--color-text-light);
+  text-align: center; /* Center the main heading and support section text */
+}
+
+.mainHeading {
+  font-size: var(--font-size-xxxl); /* Adjust as needed, but make it prominent */
+  font-weight: 800;
+  margin-bottom: var(--spacing-xxl); /* More space below the main heading */
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--color-lime-accent); /* Green/Yellow accent color */
+}
+
+/* Steps Container */
+.stepsContainer {
+  display: flex;
+  flex-direction: column; /* Default to stacking vertically */
+  gap: var(--spacing-xxl); /* Space between each step block */
+  max-width: 1200px; /* Max width for the entire steps section */
+  margin: 0 auto; /* Center the steps container */
+  padding: 0 var(--spacing-md); /* Add some padding on sides */
+}
+
+.step {
+  display: flex;
+  align-items: center; /* Vertically align content and visual */
+  justify-content: space-between; /* Space out content and visual */
+  gap: var(--spacing-xl); /* Space between text and image */
+  text-align: left; /* Text content aligned left */
+  /* Ensure consistent height for steps if visuals are different */
+  min-height: 250px; /* Adjust based on your content and desired spacing */
+}
+
+/* Specific styling for reversing order for even steps */
+.reverseOrder {
+  flex-direction: row-reverse;
+}
+
+
+.stepContent {
+  flex: 1; /* Allows content to grow */
+  max-width: 50%; /* Content takes roughly half the step width */
+  min-width: 300px; /* Prevent content from becoming too narrow */
+}
+
+.stepSubtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-blue-accent); /* Blue accent for subtitles */
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stepTitle {
+  font-size: var(--font-size-xl); /* Size for step specific titles */
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.3;
+}
+
+.stepDescription {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.stepVisual {
+  flex: 1; /* Visual takes up equal space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Min height to give space for the visual even if image is small */
+  min-height: 200px;
+}
+
+.visualImage {
+  width: 100%;
+  max-width: 450px; /* Limit image size, adjust as needed */
+  height: auto;
+  display: block; /* Remove extra space below image */
+  object-fit: contain; /* Ensure the image fits within its container without cropping */
+}
+
+/* Support Section */
+.supportSection {
+  margin-top: var(--spacing-xxl); /* Space from the steps section */
+  padding-top: var(--spacing-xxl); /* Padding above the content */
+  border-top: 1px solid var(--color-border); /* Separator line */
+  max-width: 1200px; /* Max width for the support section */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Center align all text within this section */
+}
+
+.supportHeading {
+  font-size: var(--font-size-xxl); /* Heading size */
+  font-weight: 700;
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.supportDescription {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-xl);
+  max-width: 800px; /* Slightly narrower description for better readability */
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.supportOptions {
+  display: grid;
+  /* Adjust grid-template-columns for desired number of columns */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Responsive grid */
+  gap: var(--spacing-md); /* Space between grid items */
+  justify-items: center; /* Center items within their grid cells */
+}
+
+.supportItem {
+  background-color: var(--color-dark-surface); /* Card-like background */
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid var(--color-border);
+  min-height: 150px; /* Give support items a consistent height */
+  justify-content: center; /* Center content vertically */
+}
+
+.supportItem:hover {
+  border-color: var(--color-lime-accent);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.supportIcon {
+  font-size: 2.5rem; /* Large icons */
+  color: var(--color-blue-accent); /* Icon color */
+  margin-bottom: var(--spacing-sm);
+}
+
+.supportItemText {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text-light);
+  white-space: normal; /* Allow text to wrap if long */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .step {
+    flex-direction: column; /* Stack content and visual vertically */
+    text-align: center;
+    gap: var(--spacing-lg); /* Less gap when stacked */
+  }
+  .reverseOrder {
+    flex-direction: column; /* Ensure reversed steps also stack normally */
+  }
+  .stepContent {
+    max-width: 100%; /* Take full width when stacked */
+    min-width: unset; /* Remove min-width */
+  }
+  .stepVisual {
+    min-height: 150px; /* Reduce min height for smaller screens */
+  }
+  .visualImage {
+    max-width: 300px; /* Smaller visuals on smaller screens */
+  }
+  .mainHeading {
+    font-size: var(--font-size-xxl); /* Adjust heading size */
+  }
+  .supportOptions {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Adjust grid for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .mainHeading {
+    font-size: var(--font-size-xl);
+  }
+  .stepTitle {
+    font-size: var(--font-size-lg);
+  }
+  .supportHeading {
+    font-size: var(--font-size-xl);
+  }
+  .supportDescription {
+    font-size: var(--font-size-base);
+  }
+  .supportOptions {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+  .supportItem {
+    padding: var(--spacing-md);
+    min-height: 120px; /* Adjust min height for smaller items */
+  }
+  .supportIcon {
+    font-size: 2rem;
+  }
+  .supportItemText {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .mainHeading {
+    font-size: var(--font-size-lg);
+  }
+  .stepTitle {
+    font-size: var(--font-size-base);
+  }
+  .supportOptions {
+    grid-template-columns: 1fr; /* Single column on smallest phones */
+  }
+  .supportItem {
+    padding: var(--spacing-sm);
+    min-height: 100px;
+  }
+}
