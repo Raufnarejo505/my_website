@@ -6,7 +6,7 @@ import Header from './components/layout/Header/Header';
 import Footer from './components/layout/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
 import LoginPage from './pages/LoginPage/LoginPage';
-import SignupPage from './pages/SignupPage/SignupPage';
+import SignupPage from './pages/SignUpPage/SignupPage';
 
 // Global styles
 import './assets/styles/variables.css';
