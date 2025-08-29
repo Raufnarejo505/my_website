@@ -48,7 +48,7 @@ const HeroSection = () => {
                 {/* Profit Module is logically part of the Hero Section */}
                 <div className={styles.profitModule}>
                     <FaLock className={styles.lockIcon} />
-                    <h3>See how much money you can make with OddsJam</h3> {/* Renamed from OddsJam to Surebets where applicable */}
+                    <h3>See how much money you can make with SureBetters</h3> {/* Renamed from OddsJam to Surebets where applicable */}
                     <Button variant="secondary">Estimate your profit</Button>
                 </div>
             </div>

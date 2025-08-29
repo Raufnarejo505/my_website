@@ -7,6 +7,7 @@ import Footer from './components/layout/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignUpPage/SignupPage';
+import LiveSupportPage from './pages/LiveSupportPage/LiveSupportPage';
 
 // Global styles
 import './assets/styles/variables.css';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} /> {/* Added */}
+          <Route path="/support" element={<LiveSupportPage />} />
         </Routes>
         <Footer />
       </div>

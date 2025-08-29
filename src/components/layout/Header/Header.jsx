@@ -4,10 +4,10 @@ import Button from '../../common/Button/Button.jsx';
 import { FaChevronDown, FaChevronUp, FaRegLightbulb, FaCalculator, FaChartLine, FaQuestionCircle, FaPhoneAlt, FaBriefcase, FaBuilding, FaHeartbeat } from 'react-icons/fa';
 import { RiExchangeDollarFill, RiMoneyDollarCircleFill, RiFundsBoxFill, RiCoinFill, RiSearchLine, RiBarChartBoxFill, RiFootballLine } from 'react-icons/ri';
 import { MdOutlineSportsScore } from 'react-icons/md';
-
+import { Link } from "react-router-dom";
 import StateSelector from './StateSelector.jsx';
 import LoginPage from '../../../pages/LoginPage/LoginPage.jsx';
-import logo from '../../../assets/images/oddsjam-logo.png';
+import logo from '../../../assets/images/Untitled.png';
 
 const Header = () => {
   const [isToolsOpen, setIsToolsOpen] = useState(false);
@@ -83,7 +83,7 @@ const Header = () => {
                       <li><a href="#"><FaCalculator className={styles.dropdownIcon} />Calculators</a></li>
                       <li><a href="#"><RiBarChartBoxFill className={styles.dropdownIcon} />Bet Tracker</a></li>
                       <li className={styles.dropdownDivider}></li>
-                      <li><a href="#"><FaQuestionCircle className={styles.dropdownIcon} />Help Center</a></li>
+                      <li><Link to="/support"><FaQuestionCircle className={styles.dropdownIcon} />Help Center</Link></li>
                       <li><a href="#"><FaPhoneAlt className={styles.dropdownIcon} />Schedule Free Coaching Call</a></li>
                       <li><a href="#"><FaBriefcase className={styles.dropdownIcon} />Careers</a></li>
                       <li><a href="#"><FaBuilding className={styles.dropdownIcon} />Enterprise</a></li>
