@@ -113,13 +113,11 @@ const Header = () => {
                     />
                 )}
             </div>
-            <a
-              href="/login"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+
+            <Link to="/login">
               <Button variant="secondary" size="small">Login</Button>
-            </a>
+            </Link>
+
         </div>
       </div>
 
