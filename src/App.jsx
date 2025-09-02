@@ -8,6 +8,8 @@ import LandingPage from './pages/LandingPage/LandingPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignUpPage/SignupPage';
 import LiveSupportPage from './pages/LiveSupportPage/LiveSupportPage';
+import HeroSection from "./pages/LandingPage/HeroSection";
+import ArbitrageCalculator from "./pages/LandingPage/ArbitrageCalculator";
 
 // Global styles
 import './assets/styles/variables.css';
@@ -24,6 +26,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} /> {/* Added */}
           <Route path="/support" element={<LiveSupportPage />} />
+          <Route path="/" element={<HeroSection />} />
+          <Route path="/calculator" element={<ArbitrageCalculator />} />
         </Routes>
         <Footer />
       </div>

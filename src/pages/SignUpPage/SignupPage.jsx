@@ -1,9 +1,6 @@
 // src/pages/SignupPage/SignupPage.jsx
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, db } from "../../firebase"; // <-- import Firestore
 import { useNavigate, Link } from "react-router-dom";
-import { doc, setDoc } from "firebase/firestore"; // <-- Firestore helpers
 import "./SignUpPage.css";
 
 export default function SignupPage() {
@@ -21,7 +18,7 @@ export default function SignupPage() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // Handle input changes
+  // 🔹 Handle input changes
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -29,36 +26,25 @@ export default function SignupPage() {
     });
   };
 
+  // 🔹 Signup handler (must be inside the component)
   const handleSignup = async (e) => {
     e.preventDefault();
-
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return;
     }
 
     try {
-      // Create user with Firebase Auth
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        formData.email,
-        formData.password
-      );
-
-      const user = userCredential.user;
-
-      // Save extra details to Firestore
-      await setDoc(doc(db, "users", user.uid), {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        age: formData.age,
-        dob: formData.dob,
-        gender: formData.gender,
-        email: formData.email,
-        createdAt: new Date(),
+      const res = await fetch("http://localhost:5000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      navigate("/dashboard");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Signup failed");
+
+      navigate("/login");
     } catch (err) {
       setError(err.message);
     }
@@ -98,7 +84,6 @@ export default function SignupPage() {
               className="form-input"
             />
           </div>
-
 
           <div className="form-group">
             <label className="form-label">Email address</label>

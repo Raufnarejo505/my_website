@@ -1,6 +1,5 @@
+// src/pages/LoginPage/LoginPage.jsx
 import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firebase";
 import { useNavigate, Link } from "react-router-dom";
 import "./LoginPage.css";
 
@@ -13,8 +12,20 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/dashboard");
+      const res = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Login failed");
+
+      // Save token to localStorage
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user)); // ✅ Save user info
+      navigate("/");
+
     } catch (err) {
       setError(err.message);
     }

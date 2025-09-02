@@ -1,15 +1,16 @@
 // src/pages/LandingPage/HeroSection.jsx
 import React, { useState } from 'react';
-import styles from './HeroSection.module.css'; // New CSS module for HeroSection
-import Button from '../../components/common/Button/Button.jsx'; // Corrected path
-import StateSelector from '../../components/layout/Header/StateSelector.jsx'; // Corrected path
-import { FaUserCircle, FaChevronDown, FaLock } from 'react-icons/fa'; // Added FaChevronDown, FaLock
+import styles from './HeroSection.module.css';
+import Button from '../../components/common/Button/Button.jsx';
+import StateSelector from '../../components/layout/Header/StateSelector.jsx';
+import { FaUserCircle, FaChevronDown, FaLock } from 'react-icons/fa';
 import { MdOutlineMail } from 'react-icons/md';
+import { useNavigate } from "react-router-dom";
 
-const HeroSection = () => {
+const HeroSection = ({ user }) => {   // 👈 accept user as prop
     const [selectedState, setSelectedState] = useState('Greater London');
     const [isStateSelectorOpen, setIsStateSelectorOpen] = useState(false);
-
+    const navigate = useNavigate();
     const handleStateSelect = (state) => {
         setSelectedState(state);
         setIsStateSelectorOpen(false);
@@ -18,9 +19,24 @@ const HeroSection = () => {
     return (
         <section className={styles.heroSection}>
             <div className={styles.heroContent}>
-                <p className={styles.trustIndicator}><FaUserCircle className={styles.trustIcon} /> Trusted by 100k+ bettors worldwide</p>
-                <h1 className={styles.heroTitle}>Make $500-$1000+ weekly. <span className={styles.highlight}>Use math, not luck.</span></h1>
-                <p className={styles.heroSubtitle}>Get data-backed {selectedState} bets sent daily for free.</p>
+                {/* Greeting if user is logged in */}
+                {user ? (
+                    <p className={styles.welcomeMessage}>
+                        <FaUserCircle className={styles.trustIcon} /> 
+                        Welcome back, <strong>{user.first_name} {user.last_name}</strong> 👋
+                    </p>
+                ) : (
+                    <p className={styles.trustIndicator}>
+                        <FaUserCircle className={styles.trustIcon} /> Trusted by 100k+ bettors worldwide
+                    </p>
+                )}
+
+                <h1 className={styles.heroTitle}>
+                    Make $500-$1000+ weekly. <span className={styles.highlight}>Use math, not luck.</span>
+                </h1>
+                <p className={styles.heroSubtitle}>
+                    Get data-backed {selectedState} bets sent daily for free.
+                </p>
 
                 <div className={styles.ctaForm}>
                     <div className={styles.inputWrapper}>
@@ -29,7 +45,10 @@ const HeroSection = () => {
                     </div>
 
                     <div className={styles.stateSelectorWrapper}>
-                        <div className={styles.stateSelectorTrigger} onClick={() => setIsStateSelectorOpen(!isStateSelectorOpen)}>
+                        <div 
+                            className={styles.stateSelectorTrigger} 
+                            onClick={() => setIsStateSelectorOpen(!isStateSelectorOpen)}
+                        >
                             <span>{selectedState}</span>
                             <FaChevronDown className={styles.arrowIcon} />
                         </div>
@@ -44,12 +63,12 @@ const HeroSection = () => {
                     <Button variant="secondary" size="large">Send me free bets</Button>
                 </div>
             </div>
+
             <div className={styles.heroImageContainer}>
-                {/* Profit Module is logically part of the Hero Section */}
                 <div className={styles.profitModule}>
                     <FaLock className={styles.lockIcon} />
-                    <h3>See how much money you can make with SureBetters</h3> {/* Renamed from OddsJam to Surebets where applicable */}
-                    <Button variant="secondary">Estimate your profit</Button>
+                    <h3>See how much money you can make with SureBetters</h3>
+                    <Button variant="secondary" onClick={() => navigate("/calculator")}>Estimate your profit</Button>
                 </div>
             </div>
         </section>
